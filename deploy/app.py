@@ -40,18 +40,74 @@ The measurements are manually entered to simulate real-time sensor data.
 """)
 
 # =========================================================
-# 5. SAFE ENVIRONMENTAL LIMITS
+# 5. SAFE scientific LIMITS
 # =========================================================
 
 SAFE_LIMITS = {
 
-    "Temperature (°C)": 35,
-    "pH": 8.5,
-    "Nitrate (mg/L)": 9,
-    "Conductivity (µS/cm)": 1500,
-    "Turbidity (NTU)": 5,
-    "WQI": 50,
-    "Total Coliform": 100
+    # Temperature
+    # High temperature accelerates biological activity
+    "Temperature (°C)": {
+
+        "safe_max": 25,
+
+        "critical": 35
+
+    },
+
+    # WHO acceptable pH range
+    "pH": {
+
+        "safe_min": 6.5,
+
+        "safe_max": 8.5
+
+    },
+
+    # WHO nitrate limit for drinking water
+    "Nitrate (mg/L)": {
+
+        "safe_max": 10,
+
+        "critical": 50
+
+    },
+
+    # Conductivity indicator of dissolved salts
+    "Conductivity (µS/cm)": {
+
+        "safe_max": 500,
+
+        "critical": 1500
+
+    },
+
+    # WHO turbidity recommendation
+    "Turbidity (NTU)": {
+
+        "safe_max": 5,
+
+        "critical": 10
+
+    },
+
+
+    "WQI": {
+
+        "safe_max": 50,
+
+        "critical": 100
+
+    },
+
+    # Drinking water should ideally contain no coliforms
+    "Total Coliform": {
+
+        "safe_max": 0,
+
+        "critical": 10
+
+    }
 
 }
 
