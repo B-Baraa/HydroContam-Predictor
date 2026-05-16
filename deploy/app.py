@@ -223,6 +223,97 @@ with col2:
         500.0,
         50.0
     )
+# =====================================================
+# SCIENTIFIC CONTAMINATION ANALYSIS
+# =====================================================
+
+score = 0
+
+danger_reasons = []
+
+# -----------------------------------------------------
+# NITRATE
+# -----------------------------------------------------
+
+if nitrate > 50:
+
+    score += 3
+
+    danger_reasons.append(
+        "Excessive nitrate concentration"
+    )
+
+elif nitrate > 25:
+
+    score += 1
+
+# -----------------------------------------------------
+# PH
+# -----------------------------------------------------
+
+if ph < 6.5 or ph > 8.5:
+
+    score += 2
+
+    danger_reasons.append(
+        "Unsafe pH level"
+    )
+
+# -----------------------------------------------------
+# CONDUCTIVITY
+# -----------------------------------------------------
+
+if conductivity > 1000:
+
+    score += 2
+
+    danger_reasons.append(
+        "High dissolved salts concentration"
+    )
+
+elif conductivity > 500:
+
+    score += 1
+
+# -----------------------------------------------------
+# TURBIDITY
+# -----------------------------------------------------
+
+if turbidity > 5:
+
+    score += 2
+
+    danger_reasons.append(
+        "High turbidity detected"
+    )
+
+# -----------------------------------------------------
+# COLIFORM
+# -----------------------------------------------------
+
+if coliform > 0:
+
+    score += 3
+
+    danger_reasons.append(
+        "Bacterial contamination detected"
+    )
+
+# -----------------------------------------------------
+# WQI
+# -----------------------------------------------------
+
+if wqi > 100:
+
+    score += 3
+
+    danger_reasons.append(
+        "Poor water quality index"
+    )
+
+elif wqi > 50:
+
+    score += 1
 
 # =========================================================
 # 8. PREPARE INPUT DATA
@@ -266,9 +357,9 @@ if st.button("Analyze Water Safety"):
 
         # fallback simulation if feature mismatch
         probability = (
-            nitrate / 100 +
-            turbidity / 50 +
-            conductivity / 2000
+            nitrate / 50 +
+            turbidity / 30 +
+            conductivity / 100
         ) / 3
 
         prediction = int(probability > 0.5)
