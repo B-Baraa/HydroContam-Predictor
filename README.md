@@ -1,8 +1,11 @@
 # HydroContam-Predictor
 ```mermaid
-graph TD
-   README --> src
-   src --> models
-   src --> services
-   src --> tests
+flowchart TD
+    A[Business Understanding] --> B[Data Understanding]
+    B --> C[Data Preparation]
+    C --> D[Modeling]
+    D --> E[Evaluation]
+    E --> F[Deployment]
+    F --> G[Monitoring & Maintenance]
+```
 ```
