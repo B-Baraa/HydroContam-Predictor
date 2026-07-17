@@ -1,0 +1,15 @@
+services:
+  backend:
+    build: ./backend
+    container_name: hydro_backend
+    init: true
+    ports:
+      - "8000:8000"
+  frontend:
+    build: ./deploy
+    container_name: hydro_frontend
+    init: true
+    ports:
+      - "8501:8501"
+    depends_on:
+      - backend
