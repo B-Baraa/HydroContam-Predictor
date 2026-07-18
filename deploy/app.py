@@ -144,7 +144,7 @@ if st.button("Analyze Water Safety"):
 
     try:
         response = requests.post(
-            "http://backend:8000/predict",
+            "https://hydrocontam-predictor.onrender.com"
             json={
                 "temperature": float(temperature),
                 "ph": float(ph),
