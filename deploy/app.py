@@ -144,17 +144,18 @@ if st.button("Analyze Water Safety"):
 
     try:
         response = requests.post(
-            "https://hydrocontam-predictor.onrender.com"
-            json={
-                "temperature": float(temperature),
-                "ph": float(ph),
-                "nitrate": float(nitrate),
-                "conductivity": float(conductivity),
-                "turbidity": float(turbidity),
-                "wqi": float(wqi),
-                "coliform": float(coliform)
-            },
-            timeout=10
+    "https://hydrocontam-predictor.onrender.com/predict",
+    json={
+        "temperature": float(temperature),
+        "ph": float(ph),
+        "nitrate": float(nitrate),
+        "conductivity": float(conductivity),
+        "turbidity": float(turbidity),
+        "wqi": float(wqi),
+        "coliform": float(coliform)
+    },
+    timeout=30  # bumped up since Render free tier can be slow to wake
+
         )
 
         response.raise_for_status()
