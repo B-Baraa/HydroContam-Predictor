@@ -141,7 +141,7 @@ else:
 st.header("🤖 AI Prediction")
 
 if st.button("Analyze Water Safety"):
-
+    st.write("DEBUG - values being sent:", temperature, ph, nitrate, conductivity, turbidity, wqi, coliform)
     try:
         response = requests.post(
     "https://hydrocontam-predictor.onrender.com/predict",
