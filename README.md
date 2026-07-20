@@ -1,5 +1,3 @@
----
-
 ## 🧠 Machine Learning Pipeline
 
 - **Datasets fused:** groundwater nitrate, water potability, and water quality datasets merged into a single `fused_dataset.csv`
@@ -8,8 +6,6 @@
 - **Imbalance handling:** SMOTE applied to balance safe vs. contaminated classes
 - **Model selection:** best F1-score on the contaminated class (not raw accuracy)
 - **Deployment model:** a separate, lightweight model (`api_model.pkl`) trained only on the 7 features available in the live dashboard (Temperature, pH, Nitrate, Conductivity, Turbidity, WQI, Total Coliform), keeping the original 39-feature academic model untouched
-
----
 
 ## 🔌 Backend (FastAPI)
 
